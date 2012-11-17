@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<title>Eyes - jQuery plugin</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	<meta name="keywords" content="jQuery plugin eyes eye" />
+	<meta name="description" content="A jQuery plugin to clonate eyes" />
+	<meta name="author" content="Raffaele Colace - 20tab s.r.l." />
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="jquery-eyes.min.js"></script> 	
+	<script type="text/javascript">
+		jQuery(function(){
+			$("#eyes").Eyes();
+			$('#customEyes').Eyes({
+				width				: 92,//eyes' width
+				height			  	: 40,//eyes' height
+				eyeWidth		  	: 34,//width of single eye
+				borderRadius		: 30,//border radius for eye element
+				pupilBG				: '#231F20',//pupil's background
+				pupilWidth			: 20,//pupils' width
+				pupilHeight		  	: 20,//pupils' height
+				pupilBorderRadius 	: 20,//pupils' border radius
+				target				: "*", //selectors for the events target
+				
+			});
+		});
+	</script> 	
+	
+</head>
+<body>
+	<div id="eyes"></div>
+	<div id="customEyes"></div>		
+</body> 
+
+</html>
