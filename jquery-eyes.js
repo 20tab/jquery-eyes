@@ -96,10 +96,11 @@
 						pupils.css({top:0,right:"",bottom:"",left:0});
 					}
 					else if(A[0] <= x && x <= B[0]){//Sector 2
-						if(parseInt((x - eyes_pos.left)/2) <= MAX_RIGHT){
-							var l = parseInt((x - eyes_pos.left)/2);
-							pupils.css({top:"0",right:"",bottom:"",left:parseInt((x - eyes_pos.left)/2)});
-						}
+						var temp_x = parseInt(x - eyes_pos.left);
+						var X = parseInt(config.eyeWidth*2);
+						var L = (X/2) - config.pupilWidth;
+						var l = parseInt((temp_x/X)*L);
+						pupils.css({top:"0",right:"",bottom:"",left:l});
 					}
 					else if(x > B[0]){// Sector 3
 						pupils.css({top:"0",right:"0",bottom:"",left:""});
@@ -107,20 +108,30 @@
 				}
 				if(A[1] <= y && y <= C[1]){
 					if(x < A[0]){// Sector 4
-						if(parseInt((y - eyes_pos.top)) <= MAX_BOTTOM){
-							pupils.css({top:parseInt((y - eyes_pos.top)),right:"",bottom:"",left:"0"});
-						}
+						var temp_y = parseInt(y - eyes_pos.top);
+						var Y = parseInt(config.height);
+						var H = parseInt(Y - config.pupilHeight);
+						var h = parseInt((temp_y/Y)*H);
+						pupils.css({top:h,right:"",bottom:"",left:"0"});
 					}
 					else if(A[0] <= x && x <= B[0]){ // Sector 5
-						if(parseInt((x - eyes_pos.left)/2) <= MAX_RIGHT && parseInt((y - eyes_pos.top)) <= MAX_BOTTOM){
-							var l = parseInt((x - eyes_pos.left)/2);
-							pupils.css({top:parseInt((y - eyes_pos.top)),right:"",bottom:"",left:parseInt((x - eyes_pos.left)/2)});
-						}
+						var temp_y = parseInt(y - eyes_pos.top);
+						var Y = parseInt(config.height);
+						var H = parseInt(Y - config.pupilHeight);
+						var h = parseInt((temp_y/Y)*H);
+						var temp_x = parseInt(x - eyes_pos.left);
+						var X = parseInt(config.eyeWidth*2);
+						var L = parseInt((X/2) - config.pupilWidth);
+						var l = parseInt((temp_x/X)*L);
+						pupils.css({top:h,right:"",bottom:"",left:l});
+						
 					}
 					else if(x > B[0]){// Sector 6
-						if(parseInt((y - eyes_pos.top)) <= MAX_BOTTOM){
-							pupils.css({top:parseInt((y - eyes_pos.top)),right:"0",bottom:"",left:""});
-						}	
+						var temp_y = parseInt(y - eyes_pos.top);
+						var Y = parseInt(config.height);
+						var H = parseInt(Y - config.pupilHeight);
+						var h = parseInt((temp_y/Y)*H);
+						pupils.css({top:h,right:"0",bottom:"",left:""});
 					}
 				}
 				else if(y > C[1]){
@@ -128,10 +139,11 @@
 						pupils.css({top:"",right:"",bottom:"0",left:"0"});
 					}
 					else if(A[0] <= x && x <= B[0]){// Sector 8;
-						if(parseInt((x - eyes_pos.left)/2) <= MAX_RIGHT){
-							var l = parseInt((x - eyes_pos.left)/2);
-							pupils.css({top:"",right:"",bottom:"0",left:l});
-						}
+						var temp_x = parseInt(x - eyes_pos.left);
+						var X = parseInt(config.eyeWidth*2);
+						var L = parseInt((X/2) - config.pupilWidth);
+						var l = parseInt((temp_x/X)*L);
+						pupils.css({top:"",right:"",bottom:"0",left:l});
 					}
 					else if(x > B[0]){ // Sector 9;
 						pupils.css({top:"",right:"0",bottom:"0",left:""});
